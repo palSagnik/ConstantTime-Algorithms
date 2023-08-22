@@ -48,7 +48,9 @@ public class ConstantTimeMultiplication
                 for (int i = 1; i < binary_num1.length(); i++)
                 {
                     int currentBit = Integer.parseInt(binary_num1.substring(i, i + 1));
-
+                    // The reason a fake variable is being added is to, ensure that even though the exit time of the code is kept constant
+                    // the number of operations made for both 1 and 0 remains same, so as to not facilitate the difference in operation time to lead to a timing attack
+                    int fake = 0;
                     if (currentBit == 1)
                     {
                         ans = 2*ans;
@@ -57,6 +59,7 @@ public class ConstantTimeMultiplication
                     else
                     {
                         ans = 2*ans;
+                        fake += p;
                     }
                 }
               
